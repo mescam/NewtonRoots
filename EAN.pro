@@ -11,8 +11,15 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    Interval/IntervalArithmetic.cpp \
+    mathematics.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    Interval/IntervalArithmetic.h \
+    mathematics.h
 
 FORMS    += mainwindow.ui
+
+QMAKE_CXXFLAGS += -std=c++11
+LIBS += -lmpfr
