@@ -69,11 +69,13 @@ void MainWindow::on_calcButton_clicked()
         }else{
             this->ui->value->setText(QString("Nie dotyczy"));
         }
+        this->ui->szerokosc->setText(QString::fromStdString("Nie dotyczy"));
     }else{ //interval arithmetics
         intervalarth::interval *vec,
                 approx,
                 w,
                 res;
+        intervalarth::IntervalArithmetic ia;
         approx = Math::readInterval(this->ui->approx->text().toStdString());
         vec = intervalGetVectorOfParams(degree);
 
@@ -86,6 +88,7 @@ void MainWindow::on_calcButton_clicked()
         }else{
             this->ui->value->setText(QString("Nie dotyczy"));
         }
+        this->ui->szerokosc->setText(QString::fromStdString(boost::lexical_cast<std::string>(ia.IntWidth(w))));
     }
 
     //and the common part
